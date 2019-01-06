@@ -1,0 +1,11 @@
+INDEX VERSION 1.4+/Users/hoangcongtuan/eclipse-workspace/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+169687011.index
+386401919.index
+1455526974.index
+2176770599.index
+1313739051.index
+1400461833.index
+2169765639.index
+2084775084.index
+4018308052.index
+4133515001.index

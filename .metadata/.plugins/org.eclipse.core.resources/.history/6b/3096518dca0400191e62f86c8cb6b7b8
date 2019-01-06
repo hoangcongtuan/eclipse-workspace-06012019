@@ -1,0 +1,10 @@
+package model.bo;
+
+import model.dao.VaccineDAO;
+
+public class VaccineBO {
+	VaccineDAO dao;
+	public ArrayList<Vaccine> getListVaccine() {
+		return dao.getListVaccine():
+	}
+}

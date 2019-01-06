@@ -1,0 +1,56 @@
+package model.dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+import model.bean.KhachHang;
+import model.bo.VaccineBO;
+
+public class VaccineDAO {
+	String url = "jdbc:mysql://localhost/ltm_ck";
+	String userName = "root";
+	String password = "";
+	Connection connection;
+	
+	void connect(){
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			connection = DriverManager.getConnection(url, userName, password);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public ArrayList<KhachHang> getListVaccine() {
+		connect();
+		String sql=	"SELECT * FROM VACXIN";
+		ResultSet rs = null;
+		try {
+			Statement stmt = connection.createStatement();
+			rs = stmt.executeQuery(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		ArrayList<VaccineBO> list = new ArrayList<VaccineBO>();
+		VaccineB0 v;
+		try {
+			while(rs.next()){
+				v = new VaccineBO();
+				v.se
+				list.add(v);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+}

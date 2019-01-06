@@ -1,0 +1,64 @@
+<%@page import="model.bean.Khoa"%>
+<%@page import="common.StringProcess"%>
+<%@page import="model.bean.KhachHang"%>
+<%@page import="java.util.ArrayList"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Danh sách sinh viên</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <form action="DanhSachSinhVienServlet" method="get">
+            <button type="submit" class="btn btn-primary">Xem</button>
+            <div class="col-lg-2 pull-right">
+                <a class="btn btn-primary" href="ThemSinhVienServlet" role="button">Thêm mới</a>
+            </div>
+        </form>
+    </div>
+    <br>
+    <div class="bs-example">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>MaKH</th>
+                <th>Họ và tên</th>
+                <th>SDT</th>
+                <th>Dia Chi</th>
+                <th>Ngay Sinh</th>
+                <th>Gioi Tinh</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <%
+            	ArrayList<KhachHang> listKH = (ArrayList<KhachHang>)request.getAttribute("listKhachHang");
+                        	for(KhachHang kh:listKH){
+            %>
+            <tr>
+                <th scope="row"><%=kh.getMaKH() %></th>
+                <td><%=kh.getHoTenKH() %></td>
+                <td><%=StringProcess.gioiTinh(kh.getGioiTinh()) %></td>
+                <td><%=sv.getTenKhoa() %></td>
+                <td>
+                    <a href="SuaSinhVienServlet?msv=<%=sv.getMsv()%>"><span class="glyphicon glyphicon-edit""></span></a>
+                    <a href="XoaSinhVienServlet?msv=<%=sv.getMsv()%>" style="margin-left: 30px;"><span class="glyphicon glyphicon-trash"></span></a>
+                </td>
+            </tr>
+            <%
+            	}
+            %>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+package model.dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+import model.bean.KhachHang;
+
+public class VaccineDAO {
+	String url = "jdbc:mysql://localhost/ltm_ck";
+	String userName = "root";
+	String password = "";
+	Connection connection;
+	
+	void connect(){
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			connection = DriverManager.getConnection(url, userName, password);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public ArrayList<KhachHang> getListVaccine() {
+		connect();
+		String sql=	"SELECT * FROM VACXIN";
+		ResultSet rs = null;
+		try {
+			Statement stmt = connection.createStatement();
+			rs = stmt.executeQuery(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		ArrayList<VaccineDAO> list = new ArrayList<VaccineDao>();
+		KhachHang khachHang;
+		try {
+			while(rs.next()){
+				khachHang = new KhachHang();
+				khachHang.setMaKH(rs.getInt("MaKH"));
+				khachHang.setHoTenKH(rs.getString("HoTenKH"));
+				khachHang.setSoDienThoai(rs.getString("SoDienThoai"));
+				khachHang.setDiaChiKH(rs.getString("DiaChiKH"));
+				khachHang.setNgaySinh(rs.getString("NgaySinh"));
+				khachHang.setGioiTinh(rs.getString("GioiTinh"));
+				list.add(khachHang);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+}

@@ -1,0 +1,48 @@
+package model.bo;
+
+public class VaccineBO {
+	private int maVacXin;
+	private String tenVacxin;
+	private int soMui;
+	private String moTa;
+	private int giaVacxin;
+	private String tenHang;
+	public int getMaVacXin() {
+		return maVacXin;
+	}
+	public void setMaVacXin(int maVacXin) {
+		this.maVacXin = maVacXin;
+	}
+	public String getTenVacxin() {
+		return tenVacxin;
+	}
+	public void setTenVacxin(String tenVacxin) {
+		this.tenVacxin = tenVacxin;
+	}
+	public int getSoMui() {
+		return soMui;
+	}
+	public void setSoMui(int soMui) {
+		this.soMui = soMui;
+	}
+	public String getMoTa() {
+		return moTa;
+	}
+	public void setMoTa(String moTa) {
+		this.moTa = moTa;
+	}
+	public int getGiaVacxin() {
+		return giaVacxin;
+	}
+	public void setGiaVacxin(int giaVacxin) {
+		this.giaVacxin = giaVacxin;
+	}
+	public String getTenHang() {
+		return tenHang;
+	}
+	public void setTenHang(String tenHang) {
+		this.tenHang = tenHang;
+	}
+	
+	
+}

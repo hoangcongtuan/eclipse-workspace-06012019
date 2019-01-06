@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.sql.DriverManager"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
+<fullyQualifiedTypeName name="model.dao.VaccineDAO"/>
+<fullyQualifiedTypeName name="model.dao.KhachHangDAO"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="model.bean.KhachHang"/>
+<fullyQualifiedTypeName name="model.bo.KhachHangBO"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="controller.DanhSachVaccineServlet"/>
+<fullyQualifiedTypeName name="model.bo.VaccineBO"/>
+<fullyQualifiedTypeName name="model.bean.Vaccine"/>
+</qualifiedTypeNameHistroy>

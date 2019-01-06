@@ -1,0 +1,13 @@
+package model.bo;
+
+import java.util.List;
+
+import model.dao.KhachHangDAO;
+
+public class KhachHangBO {
+	KhachHangDAO dao = new KhachHangDAO();
+	
+	public List<KhachHang> getListKH() {
+		return dao.getListKH();
+	}
+}	

@@ -1,0 +1,61 @@
+package model.dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+import model.bean.KhachHang;
+import model.bo.VaccineBO;
+
+public class VaccineDAO {
+	String url = "jdbc:mysql://localhost/ltm_ck";
+	String userName = "root";
+	String password = "";
+	Connection connection;
+	
+	void connect(){
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			connection = DriverManager.getConnection(url, userName, password);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public ArrayList<Vaccine> getListVaccine() {
+		connect();
+		String sql=	"SELECT * FROM VACXIN";
+		ResultSet rs = null;
+		try {
+			Statement stmt = connection.createStatement();
+			rs = stmt.executeQuery(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		ArrayList<Vaccine> list = new ArrayList<VaccineBO>();
+		Vaccine v;
+		try {
+			while(rs.next()){
+				v = new VaccineBO();
+				v.setMaVacXin(rs.getInt("MaVacXin"));
+				v.setTenVacxin(rs.getString("TenVacXin"));
+				v.setSoMui(rs.getInt("SoMui"));
+				v.setMoTa(rs.getString("MoTa"));
+				v.setGiaVacxin(rs.getInt("GiaVacXin"));
+				v.setTenHang(rs.getString("TenHang"));
+				list.add(v);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+}

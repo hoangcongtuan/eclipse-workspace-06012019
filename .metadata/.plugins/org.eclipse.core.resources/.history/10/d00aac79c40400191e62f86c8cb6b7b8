@@ -1,0 +1,51 @@
+package model.bo;
+
+import java.util.ArrayList;
+
+import model.bean.KhachHang;
+import model.dao.SinhVienDAO;
+
+/**
+ * SinhVienBO.java
+ *
+ * Version 1.0
+ *
+ * Date: Jan 19, 2015
+ *
+ * Copyright 
+ *
+ * Modification Logs:
+ * DATE                 AUTHOR          DESCRIPTION
+ * -----------------------------------------------------------------------
+ * Jan 19, 2015        	DaiLV2          Create
+ */
+
+public class SinhVienBO {
+	SinhVienDAO sinhVienDAO = new SinhVienDAO();
+	
+	public ArrayList<KhachHang> getListSinhVien() {
+		return sinhVienDAO.getListSinhVien();
+	}
+	
+	public ArrayList<KhachHang> getListSinhVien(String maKhoa) {
+		return sinhVienDAO.getListSinhVien(maKhoa);
+	}
+	
+	public void themSinhVien(String msv, String hoTen, String gioiTinh, String maKhoa) {
+		sinhVienDAO.themSinhVien(msv, hoTen, gioiTinh, maKhoa);
+	}
+	
+	public KhachHang getThongTinSinhVien(String msv) {
+		return sinhVienDAO.getThongTinSinhVien(msv);
+	}
+	
+	public void suaSinhVien(String msv, String hoTen, String gioiTinh, String maKhoa) {
+		sinhVienDAO.suaSinhVien(msv, hoTen, gioiTinh, maKhoa);
+	}
+
+	public void xoaSinhVien(String msv) {
+		sinhVienDAO.xoaSinhVien(msv);
+	}
+
+}
+
